@@ -1,6 +1,23 @@
 //Solution from here 
 // https://www.youtube.com/watch?v=zdi92oRDdjI&list=PLES6U-jjEXseQ6UBxScgMsJfHPaq72w3Y&index=3
+#include <cstdio>
+#include <algorithm>
 
+int main() {
+    int n;
+    scanf("%d", &n);
+    int cur;
+    scanf("%d", &cur);
+    int curSum = cur;
+    int maxSum = cur;
+    for (int i = 1; i < n; i++) {
+        scanf("%d", &cur);
+        curSum = cur + std::max(0, curSum);
+        maxSum = std::max(maxSum, curSum);
+    }
+    printf("%d", maxSum);
+    return 0;
+}
 
 
 //My solution
