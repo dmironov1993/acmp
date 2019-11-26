@@ -1,4 +1,9 @@
+//Solution taken from: https://www.youtube.com/watch?v=FZJCbDLBPgk
+
+
+
 //https://acmp.ru/index.asp?main=task&id_task=292
+//My soltuion
 
 #include <bits/stdc++.h>
 using namespace std;
