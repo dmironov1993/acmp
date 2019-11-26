@@ -1,5 +1,40 @@
 //Solution taken from: https://www.youtube.com/watch?v=FZJCbDLBPgk
+#include <cstdio>
 
+bool isPrime(int n) {
+
+    for (int d = 2; d <= n / d; d++) {
+        if (n%d == 0) {
+            return false;
+        }
+    }
+    return n > 1;
+}
+
+int sumOfDigits(int n) {
+    int s = 0;
+    while (n > 0) {
+        s += n % 10;
+        n /= 10;
+    }
+    return s;
+}
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    while (true) {
+        if (isPrime(n)) {
+            printf ("%d", n);
+            return 0;
+        }
+        if (n < 10) {
+            printf("0");
+            return 0;
+        }
+        n = sumOfDigits(n);
+    }
+}
 
 
 //https://acmp.ru/index.asp?main=task&id_task=292
