@@ -1,5 +1,34 @@
 //Solution from https://www.youtube.com/watch?v=uP8jyVdJefE
+#include <stdio.h>
+#include <vector>
+#include <algorithm>
 
+struct Hor {
+    int x;
+    int y;
+};
+
+int main() {
+    int start, n;
+    scanf("%d %d", &start, &n);
+    std::vector<Hor> h(n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d %d", &h[i].x, &h[i].y);
+    }
+    std::sort(h.begin(), h.end(), [](const Hor &left, const Hor &right) {
+        return left.y > right.y;
+    });
+    int cur = start;
+    for (Hor hor: h) {
+        if (hor.x == cur) {
+            cur++;
+        } else if (hor.x + 1 == cur) {
+            cur--;
+        }
+    }
+    printf("%d", cur);
+    return 0;
+}
 
 
 
