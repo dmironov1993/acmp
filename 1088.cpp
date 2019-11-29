@@ -1,6 +1,7 @@
 //https://acmp.ru/asp/do/index.asp?main=task&id_course=1&id_section=2&id_topic=30&id_problem=293
 
 //First solution (Some error appears in the ACMP testing system, while it seems to be working locally)
+//ACMP says "Presentation error". However, if launched locally, no error occurs
 #include <bits/stdc++.h>
 using namespace std;
  
