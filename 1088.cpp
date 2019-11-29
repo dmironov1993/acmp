@@ -1,9 +1,125 @@
 //https://acmp.ru/asp/do/index.asp?main=task&id_course=1&id_section=2&id_topic=30&id_problem=293
 
+//First solution (Some error appears in the ACMP testing system, while it seems to be working locally)
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int returnVal(char x){
+    return (int)x - 64;
+}
+ 
+bool Rook(int x1, int y1, int x2, int y2) {
+    if (x1==x2 || y1==y2) {
+        return true;
+    } else {
+        return false;
+    }
+}
+ 
+bool Bishop(int x1, int y1, int x2, int y2) {
+    if (abs(x1-x2) == abs(y1-y2)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+ 
+bool Knight(int x1, int y1, int x2, int y2) {
+    if (abs(x1-x2) == 1 && abs(y1-y2) == 2) {
+        return true;
+    } else if (abs(x1-x2) == 2 && abs(y1-y2) == 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+ 
+bool Queen(int x1, int y1, int x2, int y2) {
+    if ((Rook(x1,y1,x2,y2)) || (Bishop(x1,y1,x2,y2))) {
+        return true;
+    } else {
+        return false;
+    }
+}
+ 
+bool King(int x1, int y1, int x2, int y2) {
+    if (x1==x2 && abs(y1-y2) == 1) {
+        return true;
+    } else if (y1==y2 && abs(x1-x2)==1) {
+        return true;
+    } else if (abs(x1-x2)==1 && abs(y1-y2)==1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+ 
+bool Pawn(int x1, int y1, int x2, int y2) {
+    if (y1 < 2) {
+        return false;
+    } else {
+        if (y1 == 2) {
+            if (x2-x1 <= 2) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            if (x2-x1 == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+}
+ 
+int main() {
+    char a;
+    cin >> a;
+    int x1 = returnVal(a);
+    int y1;
+    cin >> y1;
+    char b;
+    cin >> b;
+    int x2 = returnVal(b);
+    int y2;
+    cin >> y2;
+ 
+    int any = 0;
+    if (Rook(x1,y1,x2,y2)) {
+        cout << "Rook" << "\n";
+        ++any;
+    }
+    if (Bishop(x1,y1,x2,y2)) {
+        cout << "Bishop" << "\n";
+        ++any;
+    }
+    if (Knight(x1,y1,x2,y2)) {
+        cout << "Knight" << "\n";
+        ++any;
+    }
+    if (Queen(x1,y1,x2,y2)) {
+        cout << "Queen" << "\n";
+        ++any;
+    }
+    if (King(x1,y1,x2,y2)) {
+        cout << "King" << "\n";
+        ++any;
+    }
+    if (Pawn(x1,y1,x2,y2)) {
+        cout << "Pawn" << "\n";
+        ++any;
+    }
+    if (any == 0) {
+        cout << "Nobody";
+    }
+    return 0;
+}
 
 
 
-//First solution
+//Second solution (Works in the ACMP testing system)
 
 #include <bits/stdc++.h>
 using namespace std;
