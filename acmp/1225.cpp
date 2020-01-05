@@ -1,3 +1,5 @@
+//https://acmp.ru/asp/do/index.asp?main=task&id_course=1&id_section=6&id_topic=116&id_problem=714
+
 //First solution by using predefined isdigit function
 #include <bits/stdc++.h>
 using namespace std;
